@@ -5,6 +5,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
 import {Provider} from 'react-redux';
 import store from './src/store';
+import RootModal from './src/modals/RootModal';
 
 const RootStack = createStackNavigator({
   Home: HomeScreen,
@@ -18,6 +19,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <Navigation />
+        <RootModal />
       </Provider>
     );
   }
