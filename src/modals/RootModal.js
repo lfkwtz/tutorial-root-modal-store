@@ -1,6 +1,13 @@
 import * as React from 'react';
 import {Modal, Button, View} from 'react-native';
 import {connect} from 'react-redux';
+import Error from './Error';
+import Success from './Success';
+
+const Modals = {
+  Error: Error,
+  Success: Success,
+};
 
 export class RootModal extends React.Component {
   render() {
@@ -12,7 +19,7 @@ export class RootModal extends React.Component {
             padding: 20,
             justifyContent: 'space-between',
           }}>
-          <View />
+          <Modals.Error />
           <Button onPress={() => {}} title="Close" color="blue" />
         </View>
       </Modal>
