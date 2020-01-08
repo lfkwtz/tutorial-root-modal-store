@@ -14,7 +14,7 @@ const Modals = {
 
 export class RootModal extends React.Component {
   render() {
-    const {id, hideModal} = this.props;
+    const {id, modalProps, hideModal} = this.props;
 
     // assign a constant that is either one of our custom views or a noop function if the id is not set
     const ModalView = Modals[id] || function() {};
@@ -29,7 +29,7 @@ export class RootModal extends React.Component {
             justifyContent: 'space-between',
           }}>
           {/* inject the custom view */}
-          <ModalView />
+          <ModalView {...modalProps} />
           <Button onPress={hideModal} title="Close" color="blue" />
         </View>
       </Modal>
@@ -40,6 +40,7 @@ export class RootModal extends React.Component {
 const mapStateToProps = state => {
   return {
     id: state.modal.id,
+    modalProps: state.modal.modalProps,
   };
 };
 

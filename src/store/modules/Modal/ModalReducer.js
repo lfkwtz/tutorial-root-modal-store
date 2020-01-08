@@ -9,6 +9,15 @@ export const id = createReducer(ID_INITIAL_STATE, {
   },
 });
 
+const MODAL_PROPS_INITIAL_STATE = {};
+
+export const modalProps = createReducer(MODAL_PROPS_INITIAL_STATE, {
+  ['MODAL__SET_MODAL_PROPS'](state, {payload}) {
+    return payload;
+  },
+});
+
 export const ModalReducer = combineReducers({
   id,
+  modalProps,
 });

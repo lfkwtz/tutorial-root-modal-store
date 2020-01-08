@@ -13,6 +13,9 @@ export default class Error extends React.Component {
         <Text style={{fontSize: 25, color: 'red', textAlign: 'center'}}>
           There has been an error.
         </Text>
+        <Text style={{fontSize: 20, color: 'green', textAlign: 'center'}}>
+          {this.props.errorMessage}
+        </Text>
         <View />
       </View>
     );

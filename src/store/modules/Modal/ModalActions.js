@@ -1,8 +1,13 @@
-const showModal = ({id}) => {
+const showModal = ({id, modalProps = {}}) => {
   return dispatch => {
     dispatch({
       type: 'MODAL__SET_ID',
       payload: id,
+    });
+
+    dispatch({
+      type: 'MODAL__SET_MODAL_PROPS',
+      payload: modalProps,
     });
   };
 };
@@ -12,6 +17,11 @@ const hideModal = () => {
     dispatch({
       type: 'MODAL__SET_ID',
       payload: '',
+    });
+
+    dispatch({
+      type: 'MODAL__SET_MODAL_PROPS',
+      payload: {},
     });
   };
 };
