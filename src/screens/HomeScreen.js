@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Button, View, Text} from 'react-native';
 import {connect} from 'react-redux';
+import {ModalActions} from '../store/modules/Modal/ModalActions';
 
 class HomeScreen extends React.Component {
   render() {
@@ -10,6 +11,18 @@ class HomeScreen extends React.Component {
         <Button
           title="Go to Details"
           onPress={() => this.props.navigation.navigate('Details')}
+        />
+        <Button
+          title="Open Success Modal"
+          onPress={() => {
+            this.props.showModal({id: 'Success'});
+          }}
+        />
+        <Button
+          title="Open Error Modal"
+          onPress={() => {
+            this.props.showModal({id: 'Error'});
+          }}
         />
       </View>
     );
@@ -22,6 +35,13 @@ const mapStateToProps = state => {
   };
 };
 
-const ConnectedDetailsScreen = connect(mapStateToProps)(HomeScreen);
+const mapDispatchToProps = {
+  showModal: ModalActions.showModal,
+};
+
+const ConnectedDetailsScreen = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomeScreen);
 
 export default ConnectedDetailsScreen;
